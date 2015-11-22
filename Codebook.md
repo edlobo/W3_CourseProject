@@ -13,21 +13,21 @@ From one side, there is a whole Data Set called DF_TEST, which is the merge for 
 On the other hand, there is a second Data Set called DF_TRAIN which contains the whole information for Training experiment
 
 
-In order to get the tidy data the following steps were performed
-    - First merge DF_TRAIN and DF_TEST to get a complete compilation of both experiments
-    - Merging of above data set result in DF_BOTH dataframe
-    - Cleaning on names was done by removing invalid characters like "()" in the variable names.
-    - Variable called FeatureNames stores valid names
-    - tolower() function was used to force all variable names lowercase
-    - Besides, duplicated variables were removed in order to get a valid columns when renaming.
-    - Some other variables were fixed a double word
+In order to get the tidy data the following steps were performed:
+   - First merge DF_TRAIN and DF_TEST to get a complete compilation of both experiments
+   - Merging of above data set result in DF_BOTH dataframe
+   - Cleaning on names was done by removing invalid characters like "()" in the variable names.
+   - Variable called FeatureNames stores valid names
+   - tolower() function was used to force all variable names lowercase
+   - Besides, duplicated variables were removed in order to get a valid columns when renaming.
+   - Some other variables were fixed a double word
 
-        [1] "fbodybodyaccjerkmag-mean"      "fbodybodyaccjerkmag-meanfreq"  "fbodybodygyromag-mean"         "fbodybodygyromag-meanfreq"
-        [5] "fbodybodygyrojerkmag-mean"     "fbodybodygyrojerkmag-meanfreq" "fbodybodyaccjerkmag-std"       "fbodybodygyromag-std"
-        [9] "fbodybodygyrojerkmag-std"
+        "fbodybodyaccjerkmag-mean""      "fbodybodyaccjerkmag-meanfreq"  "fbodybodygyromag-mean"         "fbodybodygyromag-meanfreq"
+        "fbodybodygyrojerkmag-mean"     "fbodybodygyrojerkmag-meanfreq" "fbodybodyaccjerkmag-std"       "fbodybodygyromag-std"
+        "fbodybodygyrojerkmag-std"
 
-    - Above steps were finishing with creation of a polished DF_BOTH data frame
-    - Activity code was also renamed with actual test labels, forming the DF_FINAL data frame
+   - Above steps were finishing with creation of a polished DF_BOTH data frame
+   - Activity code was also renamed with actual test labels, forming the DF_FINAL data frame
 
                 # 1 WALKING
                 # 2 WALKING_UPSTAIRS
@@ -35,12 +35,11 @@ In order to get the tidy data the following steps were performed
                 # 4 SITTING
                 # 5 STANDING
                 # 6 LAYING
+                
+   - From the resulting data set, only variables with mean and std were selected to create the final data set. Results are saved
+     into the home directory as TidiedDF.csv file. This part was achieved by using function melt of reshape2 package
 
-
-    - From the resulting data set, only variables with mean and std were selected to create the final data set. Results are saved
-      into the home directory as TidiedDF.csv file. This part was achieved by using function melt of reshape2 package
-
-    - TidiedDF.csv shows the average of all variables selected (mean|std) in relation with each subject and each activity
+   - TidiedDF.csv shows the average of all variables selected (mean|std) in relation with each subject and each activity
 
 The resulting data set is composed of 88 variables (Subject, Activity, and 86 measures covering avg and std from experiment)
 
@@ -68,7 +67,8 @@ Frequency Domain Variables: Start with "f"
 
 VARIABLES DESCRIPTION
 =====================
-"subject"       ID for the person subject to test. Range 1-30 individuals
+"subject"       ID for the person subject to test. 
+                Range 1-30 individuals
 
 "activity"      ID for the type of activity
 				        1 WALKING
@@ -203,7 +203,6 @@ VARIABLES DESCRIPTION
 
 
 "fbodyaccjerk-meanfreq-z"   (Hz)
-
             Avg Frequency for signal Jerk on axis z
 
 "fbodygyro-mean-x"
